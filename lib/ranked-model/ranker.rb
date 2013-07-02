@@ -35,18 +35,18 @@ module RankedModel
           raise RankedModel::InvalidScope, %Q{No scope called "#{ranker.scope}" found in model}
         end
 
-        if ranker.with_same
-          if (case ranker.with_same
-                when Symbol
-                  !instance.respond_to?(ranker.with_same)
-                when Array
-                  ranker.with_same.detect {|attr| !instance.respond_to?(attr) }
-                else
-                  false
-              end)
-            raise RankedModel::InvalidField, %Q{No field called "#{ranker.with_same}" found in model}
-          end
-        end
+        # if ranker.with_same
+        #   if (case ranker.with_same
+        #         when Symbol
+        #           !instance.respond_to?(ranker.with_same)
+        #         when Array
+        #           ranker.with_same.detect {|attr| !instance.respond_to?(attr) }
+        #         else
+        #           false
+        #       end)
+        #     raise RankedModel::InvalidField, %Q{No field called "#{ranker.with_same}" found in model}
+        #   end
+        # end
       end
 
       def handle_ranking
